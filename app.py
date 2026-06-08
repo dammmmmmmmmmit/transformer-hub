@@ -46,7 +46,7 @@ if page == "📚 Comparative Analysis":
             st.markdown("""
 **How it works:**
 - Full **bidirectional** self-attention
-- Trained with **MLM** — predict masked tokens
+- Trained with **MLM** : predict masked tokens
 - `[CLS]` token used for classification
 
 **Strengths:**
@@ -65,7 +65,7 @@ if page == "📚 Comparative Analysis":
             st.markdown("""
 **How it works:**
 - **Causal (unidirectional)** attention
-- Trained with **CLM** — predict next token
+- Trained with **CLM** : predict next token
 - GPT-3 introduced **in-context learning (ICL)**
 
 **Strengths:**
@@ -171,11 +171,11 @@ if page == "📚 Comparative Analysis":
             ("Efficient Transformers", "FlashAttention, Sparse Attention push context to 128K+ tokens"),
             ("Long-context Models", "GPT-4 (128K), Gemini 1.5 (1M tokens) via RoPE, ALiBi encodings"),
             ("Multimodal Transformers", "CLIP, GPT-4o, Gemini unify vision + language + audio"),
-            ("Mixture-of-Experts", "Mixtral 8x7B activates only 12.9B of 46.7B params — same performance, fraction of cost"),
+            ("Mixture-of-Experts", "Mixtral 8x7B activates only 12.9B of 46.7B params, same performance, fraction of cost"),
             ("Agentic AI", "LLMs as reasoning engines in tool-using pipelines (LangGraph, AutoGen)"),
         ]
         for title, desc in trends:
-            st.markdown(f"**{title}** — {desc}")
+            st.markdown(f"**{title}** : {desc}")
 
 
 # ══════════════════════════════════════════════════════════════
@@ -228,7 +228,7 @@ elif page == "✍️ Generator":
         is_s2s   = selected in SEQ2SEQ
 
         if is_s2s:
-            st.info("Seq2seq model — phrase your prompt as an instruction, e.g: 'Write a short poem about: the lighthouse at the edge of the world'")
+            st.info("Seq2seq model : phrase your prompt as an instruction, e.g: 'Write a short poem about: the lighthouse at the edge of the world'")
 
         prompt = st.text_area("Enter prompt:", height=100, key="single_p",
                               placeholder="The old lighthouse stood alone at the edge of the world,")
@@ -272,7 +272,7 @@ elif page == "✍️ Generator":
                         m4.metric("Perplexity", ppl)
 
     with gen_tab2:
-        st.markdown("Same prompt — every selected model generates side by side.")
+        st.markdown("Same prompt :every selected model generates side by side.")
         selected_compare = st.multiselect(
             "Models to compare:",
             list(MODELS.keys()),
@@ -313,7 +313,7 @@ elif page == "🔬 Architectures":
     ])
 
     if model_choice == "BERT":
-        st.header("BERT — Bidirectional Encoder Representations from Transformers")
+        st.header("BERT : Bidirectional Encoder Representations from Transformers")
         st.caption("Devlin et al., Google 2018")
         col1, col2 = st.columns([1, 1])
 
@@ -363,7 +363,7 @@ elif page == "🔬 Architectures":
             st.markdown("**Key Config (BERT-Base):** Layers: 12 · Heads: 12 · Hidden: 768 · Params: 110M")
 
     elif model_choice == "GPT-2 / GPT-3 / GPT-Neo":
-        st.header("GPT-2 / GPT-3 / GPT-Neo — Decoder-Only Autoregressive LMs")
+        st.header("GPT-2 / GPT-3 / GPT-Neo : Decoder-Only Autoregressive LMs")
         st.caption("Radford et al. 2019 · Brown et al. 2020 · EleutherAI 2021")
         col1, col2 = st.columns([1, 1])
 
@@ -394,7 +394,7 @@ elif page == "🔬 Architectures":
   </div>
   <div style="text-align:center; color:#6c7086;">↓</div>
   <div style="background:#313244; border-radius:8px; padding:10px; margin:5px 0; text-align:center; color:#f38ba8;">
-    P(next token) — autoregressive generation
+    P(next token) : autoregressive generation
   </div>
 </div>
             """, unsafe_allow_html=True)
@@ -403,18 +403,18 @@ elif page == "🔬 Architectures":
             st.markdown("#### Mathematical Intuition")
             st.markdown("**Causal (Masked) Self-Attention:**")
             st.latex(r"\text{Attention}(Q,K,V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}} + M\right)V")
-            st.markdown("- Mij = -inf if j > i, else 0 — blocks future tokens")
+            st.markdown("- Mij = -inf if j > i, else 0 : blocks future tokens")
             st.markdown("**CLM Training Objective:**")
             st.latex(r"\mathcal{L}_{CLM} = -\sum_{t=1}^{T} \log P(x_t \mid x_1, x_2, ..., x_{t-1})")
             st.markdown("**In-Context Learning (GPT-3):**")
             st.latex(r"P(y \mid \text{prompt}) = \prod_{t} P(y_t \mid \text{prompt}, y_{<t})")
-            st.markdown("- No gradient update — examples in prompt shift the conditional distribution")
+            st.markdown("- No gradient update : examples in prompt shift the conditional distribution")
             st.markdown("**Scaling Law (Kaplan et al.):**")
             st.latex(r"\mathcal{L}(N) \propto N^{-\alpha}, \quad \alpha \approx 0.076")
             st.markdown("**Key Configs:**\n- GPT-2: 12L · 12H · 768d · 117M\n- GPT-3: 96L · 96H · 12288d · 175B\n- GPT-Neo: 24L · 16H · 2048d · 1.3B")
 
     elif model_choice == "T5":
-        st.header("T5 — Text-to-Text Transfer Transformer")
+        st.header("T5 : Text-to-Text Transfer Transformer")
         st.caption("Raffel et al., Google 2020")
         col1, col2 = st.columns([1, 1])
 
@@ -460,7 +460,7 @@ elif page == "🔬 Architectures":
             st.markdown("**Key Config (T5-Base):** 12E+12D layers · 12 heads · 768d · 250M params")
 
     elif model_choice == "BART":
-        st.header("BART — Denoising Sequence-to-Sequence Model")
+        st.header("BART : Denoising Sequence-to-Sequence Model")
         st.caption("Lewis et al., Facebook AI 2019")
         col1, col2 = st.columns([1, 1])
 
@@ -502,7 +502,7 @@ elif page == "🔬 Architectures":
             st.markdown("**Key Config (BART-Large):** 12E+12D layers · 16 heads · 1024d · 400M params")
 
     elif model_choice == "FLAN-T5":
-        st.header("FLAN-T5 — Instruction-Tuned T5")
+        st.header("FLAN-T5 : Instruction-Tuned T5")
         st.caption("Chung et al., Google 2022")
         col1, col2 = st.columns([1, 1])
 
