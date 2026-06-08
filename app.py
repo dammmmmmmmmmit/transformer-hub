@@ -30,7 +30,7 @@ with st.sidebar:
 # ══════════════════════════════════════════════════════════════
 if page == "📚Comparative Analysis":
     st.title("📚 Comparative Analysis of Transformer Models")
-
+    st.write("Page loaded successfully")
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "Overview", "Technical Comparison", "Quantitative", "Strengths & Weaknesses", "Applications & Conclusion"
     ])
@@ -96,7 +96,7 @@ if page == "📚Comparative Analysis":
 
     with tab2:
         st.markdown("### Technical Comparison")
-              st.markdown("""
+        st.markdown("""
 | Parameter | Encoder-Only | Decoder-Only | Encoder-Decoder |
 |---|---|---|---|
 | Attention Type | Bidirectional (full) | Causal (masked) | Cross-attention + causal |
