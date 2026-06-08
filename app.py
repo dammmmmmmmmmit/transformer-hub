@@ -9,9 +9,11 @@ from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge_score import rouge_scorer as rs
 from transformers import pipeline, GPT2LMHeadModel, GPT2Tokenizer
 
-nltk.download('punkt', quiet=True)
-nltk.download('punkt_tab', quiet=True)
-
+try:
+    nltk.download('punkt', quiet=True)
+    nltk.download('punkt_tab', quiet=True)
+except:
+    pass
 st.set_page_config(page_title="Transformer Hub", layout="wide", page_icon="🤖")
 
 with st.sidebar:
@@ -196,7 +198,7 @@ elif page == "✍️ Generator":
     def load_pipe(model_id, is_s2s):
         task = "text2text-generation" if is_s2s else "text-generation"
         return pipeline(task, model=model_id,
-                        device=0 if torch.cuda.is_available() else -1)
+                        device=1 if torch.cuda.is_available() else -1)
 
     def run_generate(pipe, is_s2s, prompt, max_length, temperature, top_k, top_p, num_seq):
         if is_s2s:
