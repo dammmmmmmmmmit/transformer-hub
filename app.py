@@ -198,7 +198,7 @@ elif page == "✍️ Generator":
     def load_pipe(model_id, is_s2s):
         task = "text2text-generation" if is_s2s else "text-generation"
         return pipeline(task, model=model_id,
-                        device=1 if torch.cuda.is_available() else -1)
+                        device=-1 if torch.cuda.is_available() else -1)
 
     def run_generate(pipe, is_s2s, prompt, max_length, temperature, top_k, top_p, num_seq):
         if is_s2s:
