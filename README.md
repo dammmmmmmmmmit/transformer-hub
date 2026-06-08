@@ -1,3 +1,15 @@
+---
+title: Transformer Hub
+emoji: 🤖
+colorFrom: blue
+colorTo: purple
+sdk: streamlit
+sdk_version: 1.32.0
+app_file: app.py
+python_version: "3.11"
+pinned: false
+---
+
 A comprehensive interactive web app for exploring, comparing, and generating text using major Transformer architectures built with Streamlit and HuggingFace Transformers.
 
 ## 📌 What is this?
@@ -12,7 +24,7 @@ A structured comparative study of the 3 major Transformer paradigms:
 - **Decoder-Only** (GPT-2, GPT-3, GPT-Neo)
 - **Encoder-Decoder** (T5, BART, FLAN-T5)
 
-Includes technical comparison tables, quantitative benchmarks (BLEU, ROUGE, Perplexity, SQuAD F1), strengths/weaknesses, application recommendations, and future trends.
+Includestechnical comparison tables, quantitative benchmarks (BLEU, ROUGE, Perplexity, SQuAD F1), strengths/weaknesses, application recommendations, and future trends.
 
 ### ✍️ Generator
 A story and poem generation system powered by 6 open-source models:
