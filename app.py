@@ -96,17 +96,17 @@ if page == "📚Comparative Analysis":
 
     with tab2:
         st.markdown("### Technical Comparison")
-        st.markdown("""
+              st.markdown("""
 | Parameter | Encoder-Only | Decoder-Only | Encoder-Decoder |
 |---|---|---|---|
 | Attention Type | Bidirectional (full) | Causal (masked) | Cross-attention + causal |
 | Training Objective | MLM | CLM | Seq2Seq / Span Masking |
-| Context Understanding | ★★★★★ | ★★★ | ★★★★ |
-| Text Generation | ★★ | ★★★★★ | ★★★★ |
-| Classification | ★★★★★ | ★★★ | ★★★★ |
-| Translation | ★★ | ★★★ | ★★★★★ |
-| Summarization | ★★★ | ★★★★ | ★★★★★ |
-| Few-shot Prompting | ★★ | ★★★★★ | ★★★★ |
+| Context Understanding | 5/5 | 3/5 | 4/5 |
+| Text Generation | 2/5 | 5/5 | 4/5 |
+| Classification | 5/5 | 3/5 | 4/5 |
+| Translation | 2/5 | 3/5 | 5/5 |
+| Summarization | 3/5 | 4/5 | 5/5 |
+| Few-shot Prompting | 2/5 | 5/5 | 4/5 |
         """)
 
     with tab3:
